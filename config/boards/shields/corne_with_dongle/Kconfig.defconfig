@@ -4,7 +4,7 @@
 if SHIELD_CORNE_WITH_DONGLE_CENTRAL
 
 config ZMK_KEYBOARD_NAME
-	default "Corne with Dongle"
+	default "CorneWithDongle"
 	
 config ZMK_SPLIT_BLE_ROLE_CENTRAL
 	default y
