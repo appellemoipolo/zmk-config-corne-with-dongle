@@ -6,6 +6,6 @@
 
 #include "corne_with_dongle.dtsi"
 
-&kscan0 {
+kscan0 {
 	
 };
