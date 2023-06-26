@@ -7,5 +7,19 @@
 #include "corne_with_dongle.dtsi"
 
 &kscan0 {
-
+    row-gpios
+        = <&xiao_d 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+        , <&xiao_d 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+        , <&xiao_d 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+        , <&xiao_d 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+        ;
+        
+	col-gpios
+		= <&xiao_d 21 GPIO_ACTIVE_HIGH>
+		, <&xiao_d 20 GPIO_ACTIVE_HIGH>
+		, <&xiao_d 19 GPIO_ACTIVE_HIGH>
+		, <&xiao_d 18 GPIO_ACTIVE_HIGH>
+		, <&xiao_d 15 GPIO_ACTIVE_HIGH>
+		, <&xiao_d 14 GPIO_ACTIVE_HIGH>
+		;
 };
