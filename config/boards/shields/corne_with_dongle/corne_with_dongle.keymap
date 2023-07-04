@@ -51,9 +51,29 @@
                         bindings = <&kp BKSP>, <&kp DEL>;
                         mods = <(MOD_LSFT|MOD_RSFT)>;
                 };
+                lparrpar: lpar_rpar {
+                        compatible = "zmk,behavior-mod-morph";
+                        label = "LPAR_RPAR";
+                        #binding-cells = <0>;
+                        bindings = <&kp LPAR>, <&kp RPAR>;
+                        mods = <(MOD_LSFT|MOD_RSFT)>;
+                };
+                lbktrbkt: lbkt_rbkt {
+                        compatible = "zmk,behavior-mod-morph";
+                        label = "LBKT_RBKT";
+                        #binding-cells = <0>;
+                        bindings = <&kp LBKT>, <&kp RBKT>;
+                        mods = <(MOD_LSFT|MOD_RSFT)>;
+                };
+                lbrcrbrc: lbrc_rbrc {
+                        compatible = "zmk,behavior-mod-morph";
+                        label = "LBRC_RBRC";
+                        #binding-cells = <0>;
+                        bindings = <&kp LBRC>, <&kp RBRC>;
+                        mods = <(MOD_LSFT|MOD_RSFT)>;
+                };
         };
-};
-/ {        
+        
         keymap {
                 compatible = "zmk,keymap";
 
@@ -74,7 +94,7 @@
                 lower_layer {
                         bindings = <
 // ╭───────────────┬───────────────┬───────────────┬───────────────┬───────────────┬───────────────╮   ╭───────────────┬───────────────┬───────────────┬───────────────┬───────────────┬───────────────╮
-   &trans          &kp C_BRI_UP    &kp PG_UP       &kp UP          &kp HOME        &kp C_VOL_UP        &athash         &lparrpar       &underpipe      &kp CARET       &kp GRAVE       &trans 
+   &trans          &kp C_BRI_UP    &kp PG_UP       &kp UP          &kp HOME        &kp C_VOL_UP        &athash         &lparrpar       &underpipe      &kp CARET       &kp GRAVE       &kp DEL 
 // ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤   ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤
    &kp PRINTSCREEN &kp C_BRI_DN    &kp LEFT        &kp DOWN        &kp RIGHT       &kp C_VOL_DN        &kp AMPERSAND   &lbktrbkt       &none           &none           &kp TILD        &trans
 // ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤   ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤
@@ -88,7 +108,7 @@
                 raise_layer {
                         bindings = <
 // ╭───────────────┬───────────────┬───────────────┬───────────────┬───────────────┬───────────────╮   ╭───────────────┬───────────────┬───────────────┬───────────────┬───────────────┬───────────────╮
-   &trans          &kp F1          &kp F2          &kp F3          &kp F4          &kp F5              &plusminus      &kp N7          &kp N8          &kp N9          &multdivive     &trans
+   &trans          &kp F1          &kp F2          &kp F3          &kp F4          &kp F5              &plusminus      &kp N7          &kp N8          &kp N9          &multdivive     &kp DEL
 // ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤   ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤
    &trans          &kp F6          &kp F7          &kp F8          &kp F9          &kp F10             &kp EQUAL       &kp N4          &kp N5          &kp N6          &dotcomma       &trans
 // ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤   ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤
