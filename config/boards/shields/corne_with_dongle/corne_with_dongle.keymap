@@ -72,6 +72,27 @@
                         bindings = <&kp LBRC>, <&kp RBRC>;
                         mods = <(MOD_LSFT|MOD_RSFT)>;
                 };
+                plusminus: plus_minus {
+                        compatible = "zmk,behavior-mod-morph";
+                        label = "PLUS_MINUS";
+                        #binding-cells = <0>;
+                        bindings = <&kp KP_PLUS>, <&kp KP_MINUS>;
+                        mods = <(MOD_LSFT|MOD_RSFT)>;
+                };
+                multdivive: mult_divive {
+                        compatible = "zmk,behavior-mod-morph";
+                        label = "MULT_DIVIDE";
+                        #binding-cells = <0>;
+                        bindings = <&kp KP_MULTIPLY>, <&kp KP_DIVIDE>;
+                        mods = <(MOD_LSFT|MOD_RSFT)>;
+                };
+                dotcomma: dot_comma {
+                        compatible = "zmk,behavior-mod-morph";
+                        label = "DOT_COMMA";
+                        #binding-cells = <0>;
+                        bindings = <&kp DOT>, <&kp COMMA>;
+                        mods = <(MOD_LSFT|MOD_RSFT)>;
+                };
         };
         
         keymap {
