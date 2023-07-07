@@ -1,0 +1,176 @@
+/*
+ * Copyright (c) 2020 The ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+
+#define DEFAULT 0
+#define LOW_L   1
+#define RAI_L   2
+#define BKS_L   3
+#define ADJ_L   4
+
+/ {
+        conditional_layers {
+                compatible = "zmk,conditional-layers";
+                one_and_two_layer {
+                        if-layers = <1 2>;
+                        then-layer = <3>;
+                };
+                one_and_tree_layer {
+                        if-layers = <1 3>;
+                        then-layer = <4>;
+                };
+        };
+       
+        behaviors {               
+                colonexcl: colon_excl {
+                        compatible = "zmk,behavior-mod-morph";
+                        label = "COLON_EXCL";
+                        #binding-cells = <0>;
+                        bindings = <&kp COLON>, <&kp EXCL>;
+                        mods = <(MOD_LSFT|MOD_RSFT)>;
+                };
+                underpipe: under_pipe {
+                        compatible = "zmk,behavior-mod-morph";
+                        label = "UNDER_PIPE";
+                        #binding-cells = <0>;
+                        bindings = <&kp UNDER>, <&kp PIPE>;
+                        mods = <(MOD_LSFT|MOD_RSFT)>;
+                };
+                athash: at_hash {
+                        compatible = "zmk,behavior-mod-morph";
+                        label = "AT_HASH";
+                        #binding-cells = <0>;
+                        bindings = <&kp AT>, <&kp HASH>;
+                        mods = <(MOD_LSFT|MOD_RSFT)>;
+                };
+                bkspdel: bksp_del {
+                        compatible = "zmk,behavior-mod-morph";
+                        label = "BKSP_DEL";
+                        #binding-cells = <0>;
+                        bindings = <&kp BKSP>, <&kp DEL>;
+                        mods = <(MOD_LSFT|MOD_RSFT)>;
+                };
+                lparrpar: lpar_rpar {
+                        compatible = "zmk,behavior-mod-morph";
+                        label = "LPAR_RPAR";
+                        #binding-cells = <0>;
+                        bindings = <&kp LPAR>, <&kp RPAR>;
+                        mods = <(MOD_LSFT|MOD_RSFT)>;
+                };
+                lbktrbkt: lbkt_rbkt {
+                        compatible = "zmk,behavior-mod-morph";
+                        label = "LBKT_RBKT";
+                        #binding-cells = <0>;
+                        bindings = <&kp LBKT>, <&kp RBKT>;
+                        mods = <(MOD_LSFT|MOD_RSFT)>;
+                };
+                lbrcrbrc: lbrc_rbrc {
+                        compatible = "zmk,behavior-mod-morph";
+                        label = "LBRC_RBRC";
+                        #binding-cells = <0>;
+                        bindings = <&kp LBRC>, <&kp RBRC>;
+                        mods = <(MOD_LSFT|MOD_RSFT)>;
+                };
+                plusminus: plus_minus {
+                        compatible = "zmk,behavior-mod-morph";
+                        label = "PLUS_MINUS";
+                        #binding-cells = <0>;
+                        bindings = <&kp KP_PLUS>, <&kp KP_MINUS>;
+                        mods = <(MOD_LSFT|MOD_RSFT)>;
+                };
+                multdivive: mult_divive {
+                        compatible = "zmk,behavior-mod-morph";
+                        label = "MULT_DIVIDE";
+                        #binding-cells = <0>;
+                        bindings = <&kp KP_MULTIPLY>, <&kp KP_DIVIDE>;
+                        mods = <(MOD_LSFT|MOD_RSFT)>;
+                };
+                dotcomma: dot_comma {
+                        compatible = "zmk,behavior-mod-morph";
+                        label = "DOT_COMMA";
+                        #binding-cells = <0>;
+                        bindings = <&kp DOT>, <&kp COMMA>;
+                        mods = <(MOD_LSFT|MOD_RSFT)>;
+                };
+        };
+        
+        keymap {
+                compatible = "zmk,keymap";
+
+                default_layer {
+                        bindings = <
+// ╭───────────────┬───────────────┬───────────────┬───────────────┬───────────────┬───────────────╮   ╭───────────────┬───────────────┬───────────────┬───────────────┬───────────────┬───────────────╮
+   &kp ESC         &kp Q           &kp W           &kp F           &kp P           &kp B               &kp J           &kp L           &kp U           &kp Y           &kp SQT         &kp BKSP
+// ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤   ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤
+   &kp LCTRL       &kp A           &kp R           &kp S           &kp T           &kp G               &kp M           &kp N           &kp E           &kp I           &kp O           &kp LALT
+// ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤   ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤
+   &kp LSHFT       &kp Z           &kp X           &kp C           &kp D           &kp V               &kp K           &kp H           &kp COMMA       &kp DOT         &kp SLASH       &kp RSHFT
+// ╰───────────────┴───────────────┴───────────────┼───────────────┼───────────────┼───────────────┤   ├───────────────┼───────────────┼───────────────┼───────────────┴───────────────┴───────────────╯
+                                                   &kp LEFT_GUI    &mo LOW_L       &lt BKS_L RETURN    &lt LSHFT SPACE &mo RAI_L       &kp LEFT_META
+//                                                 ╰───────────────┴───────────────┴───────────────╯   ╰───────────────┴───────────────┴───────────────╯
+                        >;
+                };
+    
+                lower_layer {
+                        bindings = <
+// ╭───────────────┬───────────────┬───────────────┬───────────────┬───────────────┬───────────────╮   ╭───────────────┬───────────────┬───────────────┬───────────────┬───────────────┬───────────────╮
+   &trans          &kp C_BRI_UP    &kp PG_UP       &kp UP          &kp HOME        &kp C_VOL_UP        &athash         &lparrpar       &underpipe      &kp CARET       &kp GRAVE       &kp DEL 
+// ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤   ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤
+   &kp PRINTSCREEN &kp C_BRI_DN    &kp LEFT        &kp DOWN        &kp RIGHT       &kp C_VOL_DN        &kp AMPERSAND   &lbktrbkt       &none           &none           &kp TILD        &trans
+// ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤   ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤
+   &kp CAPSLOCK    &to LOW_L       &kp PG_DN       &kp INSERT      &kp END         &kp C_MUTE          &kp PERCENT     &lbrcrbrc       &kp SEMICOLON   &colonexcl      &kp BACKSLASH   &trans
+// ╰───────────────┴───────────────┴───────────────┼───────────────┼───────────────┼───────────────┤   ├───────────────┼───────────────┼───────────────┼───────────────┴───────────────┴───────────────╯
+                                                   &trans          &trans          &trans              &trans          &trans          &mo BKS_L
+//                                                 ╰───────────────┴───────────────┴───────────────╯   ╰───────────────┴───────────────┴───────────────╯
+                        >;
+                };
+
+                raise_layer {
+                        bindings = <
+// ╭───────────────┬───────────────┬───────────────┬───────────────┬───────────────┬───────────────╮   ╭───────────────┬───────────────┬───────────────┬───────────────┬───────────────┬───────────────╮
+   &trans          &kp F1          &kp F2          &kp F3          &kp F4          &kp F5              &plusminus      &kp N7          &kp N8          &kp N9          &multdivive     &kp DEL
+// ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤   ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤
+   &trans          &kp F6          &kp F7          &kp F8          &kp F9          &kp F10             &kp EQUAL       &kp N4          &kp N5          &kp N6          &dotcomma       &trans
+// ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤   ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤
+   &trans          &trans          &trans          &trans          &kp F11         &kp F12             &kp N0          &kp N1          &kp N2          &kp N3          &to RAI_L       &trans
+// ╰───────────────┴───────────────┴───────────────┼───────────────┼───────────────┼───────────────┤   ├───────────────┼───────────────┼───────────────┼───────────────┴───────────────┴───────────────╯
+                    	                           &mo BKS_L       &trans          &trans              &trans          &trans          &trans
+//                                                 ╰───────────────┴───────────────┴───────────────╯   ╰───────────────┴───────────────┴───────────────╯
+                        >;
+                };
+
+                bkp_layer {
+                        bindings = <
+// ╭───────────────┬───────────────┬───────────────┬───────────────┬───────────────┬───────────────╮   ╭───────────────┬───────────────┬───────────────┬───────────────┬───────────────┬───────────────╮
+   &none           &none           &none           &none           &none           &lbktrbkt           &lbktrbkt           &none           &none           &none           &none           &none           
+// ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤   ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤
+   &none           &none           &none           &none           &none           &none               &none           &none           &none           &none           &none           &none           
+// ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤   ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤
+   &bt BT_CLR      &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_SEL 3    &bt BT_SEL 4        &none           &none           &none           &none           &none           &none           
+// ╰───────────────┴───────────────┴───────────────┼───────────────┼───────────────┼───────────────┤   ├───────────────┼───────────────┼───────────────┼───────────────┴───────────────┴───────────────╯
+                    	                           &none           &none           &none               &to ADJ_L       &none           &none           
+//                                                 ╰───────────────┴───────────────┴───────────────╯   ╰───────────────┴───────────────┴───────────────╯
+                        >;
+                };
+
+                adjust_layer {
+                        bindings = <
+// ╭───────────────┬───────────────┬───────────────┬───────────────┬───────────────┬───────────────╮   ╭───────────────┬───────────────┬───────────────┬───────────────┬───────────────┬───────────────╮
+   &sys_reset      &none           &none           &none           &none           &none               &none           &none           &none           &none           &none           &sys_reset 
+// ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤   ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤
+   &bootloader     &none           &none           &none           &none           &none               &none           &none           &none           &none           &none           &bootloader
+// ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤   ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤
+   &none           &none           &none           &none           &none           &none               &none           &none           &none           &none           &none           &none
+// ╰───────────────┴───────────────┴───────────────┼───────────────┼───────────────┼───────────────┤   ├───────────────┼───────────────┼───────────────┼───────────────┴───────────────┴───────────────╯
+                                                   &none           &none           &none               &none           &none           &none
+//                                                 ╰───────────────┴───────────────┴───────────────╯   ╰───────────────┴───────────────┴───────────────╯
+                        >;
+                };
+        };
+};

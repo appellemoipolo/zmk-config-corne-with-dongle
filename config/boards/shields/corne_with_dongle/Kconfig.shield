@@ -1,0 +1,11 @@
+# Copyright (c) 2020 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+config SHIELD_CORNE_WITH_DONGLE_LEFT
+	def_bool $(shields_list_contains,corne_with_dongle_left)
+
+config SHIELD_CORNE_WITH_DONGLE_RIGHT
+	def_bool $(shields_list_contains,corne_with_dongle_right)
+
+config SHIELD_CORNE_WITH_DONGLE_CENTRAL
+	def_bool $(shields_list_contains,corne_with_dongle_central)
