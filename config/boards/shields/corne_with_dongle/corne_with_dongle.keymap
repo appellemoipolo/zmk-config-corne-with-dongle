@@ -25,6 +25,10 @@
                         if-layers = <1 3>;
                         then-layer = <4>;
                 };
+                two_and_tree_layer {
+                        if-layers = <2 3>;
+                        then-layer = <4>;
+                };
         };
        
         behaviors {               
@@ -98,7 +102,7 @@
                         bindings = <&kp DOT>, <&kp COMMA>;
                         mods = <(MOD_LSFT|MOD_RSFT)>;
                 };
-                tdlowlayer: td_low_layer {
+                /*tdlowlayer: td_low_layer {
                         compatible = "zmk,behavior-tap-dance";
                         label = "TAP_DANCE_LOW_LAYER";
                         #binding-cells = <0>;
@@ -111,7 +115,7 @@
                         #binding-cells = <0>;
                         tapping-term-ms = <200>;
                         bindings = <&mt RAI_L>, <&to RAI_L>, <&to ADJ_L>;
-                };
+                };*/
         };
         
         keymap {
@@ -126,7 +130,7 @@
 // ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤   ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤
    &kp LSHFT       &kp Z           &kp X           &kp C           &kp D           &kp V               &kp K           &kp H           &kp COMMA       &kp DOT         &kp SLASH       &kp RSHFT
 // ╰───────────────┴───────────────┴───────────────┼───────────────┼───────────────┼───────────────┤   ├───────────────┼───────────────┼───────────────┼───────────────┴───────────────┴───────────────╯
-                                                   &kp LEFT_GUI    &tdlowlayer     &mt BKS_L RETURN    &mt LSHFT SPACE &tdrailayer     &kp LEFT_META
+                                                   &kp LEFT_GUI    &none           &kp RETURN          &kp SPACE       &none           &kp LEFT_META
 //                                                 ╰───────────────┴───────────────┴───────────────╯   ╰───────────────┴───────────────┴───────────────╯
                         >;
                 };
