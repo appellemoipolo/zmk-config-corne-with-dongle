@@ -107,16 +107,15 @@
                         label = "TD_LOW_LAYER";
                         #binding-cells = <0>;
                         tapping-term-ms = <200>;
-                        //bindings = <&mt LOW_L>, <&to LOW_L>, <&to ADJ_L>;
-                        bindings = <&kp A>, <&kp B>, <&kp C>;
+                        bindings = <&lt LOW_L>, <&to LOW_L>, <&to ADJ_L>;
+
                 };
                 tdrailayer: td_raise_layer {
                         compatible = "zmk,behavior-tap-dance";
                         label = "TD_RAISE_LAYER";
                         #binding-cells = <0>;
                         tapping-term-ms = <200>;
-                        //bindings = <&mt RAI_L>, <&to RAI_L>, <&to ADJ_L>;
-                        bindings = <&kp A>, <&kp B>, <&kp C>;
+                        bindings = <&lt RAI_L>, <&to RAI_L>, <&to ADJ_L>;
                 };
         };
         
