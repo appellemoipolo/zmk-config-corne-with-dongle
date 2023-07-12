@@ -102,20 +102,20 @@
                         bindings = <&kp DOT>, <&kp COMMA>;
                         mods = <(MOD_LSFT|MOD_RSFT)>;
                 };
-                /*tdlowlayer: td_low_layer {
+                tdlowlayer: td_low_layer {
                         compatible = "zmk,behavior-tap-dance";
-                        label = "TAP_DANCE_LOW_LAYER";
+                        label = "TD_LOW_LAYER";
                         #binding-cells = <0>;
                         tapping-term-ms = <200>;
                         bindings = <&mt LOW_L>, <&to LOW_L>, <&to ADJ_L>;
                 };
                 tdrailayer: td_raise_layer {
                         compatible = "zmk,behavior-tap-dance";
-                        label = "TAP_DANCE_RAISE_LAYER";
+                        label = "TD_RAISE_LAYER";
                         #binding-cells = <0>;
                         tapping-term-ms = <200>;
                         bindings = <&mt RAI_L>, <&to RAI_L>, <&to ADJ_L>;
-                };*/
+                };
         };
         
         keymap {
@@ -130,7 +130,7 @@
 // ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤   ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤
    &kp LSHFT       &kp Z           &kp X           &kp C           &kp D           &kp V               &kp K           &kp H           &kp COMMA       &kp DOT         &kp SLASH       &kp RSHFT
 // ╰───────────────┴───────────────┴───────────────┼───────────────┼───────────────┼───────────────┤   ├───────────────┼───────────────┼───────────────┼───────────────┴───────────────┴───────────────╯
-                                                   &kp LEFT_GUI    &none           &kp RETURN          &kp SPACE       &none           &kp LEFT_META
+                                                   &kp LEFT_GUI    &tdlowlayer     &kp RETURN          &kp SPACE       &tdrailayer     &kp LEFT_META
 //                                                 ╰───────────────┴───────────────┴───────────────╯   ╰───────────────┴───────────────┴───────────────╯
                         >;
                 };
