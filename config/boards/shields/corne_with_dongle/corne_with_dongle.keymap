@@ -21,8 +21,8 @@
         conditional_layers {
                 compatible = "zmk,conditional-layers";
                 one_and_two_layer {
-                        if-layers = <1 2>;
-                        then-layer = <3>;
+                        if-layers = <LOW_L RAI_L>;
+                        then-layer = <BKS_L>;
                 };
                 /*
                 one_and_tree_layer {
@@ -110,7 +110,7 @@
                         compatible = "zmk,behavior-tap-dance";
                         label = "TD_LOW_LAYER";
                         #binding-cells = <0>;
-                        tapping-term-ms = <500>;
+                        tapping-term-ms = <2000>;
                         bindings = <&mo LOW_L>, <&to LOW_L>, <&to BKS_L>, <&to ADJ_L>;
 
                 };
@@ -118,7 +118,7 @@
                         compatible = "zmk,behavior-tap-dance";
                         label = "TD_RAISE_LAYER";
                         #binding-cells = <0>;
-                        tapping-term-ms = <500>;
+                        tapping-term-ms = <2000>;
                         bindings = <&mo RAI_L>, <&to RAI_L>, <&to BKS_L>, <&to ADJ_L>;
                 };
         };
