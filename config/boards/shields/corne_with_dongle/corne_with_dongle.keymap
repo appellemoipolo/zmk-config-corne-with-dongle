@@ -111,7 +111,7 @@
                         label = "TD_LOW_LAYER";
                         #binding-cells = <0>;
                         tapping-term-ms = <500>;
-                        bindings = <&mo LOW_L>, <&to LOW_L>, <&to BKS_L>, &to ADJ_L>;
+                        bindings = <&mo LOW_L>, <&to LOW_L>, <&to BKS_L>, <&to ADJ_L>;
 
                 };
                 tdrailayer: td_raise_layer {
